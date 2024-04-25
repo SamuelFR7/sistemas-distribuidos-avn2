@@ -9,8 +9,8 @@ CREATE TABLE IF NOT EXISTS "hotels" (
 CREATE TABLE IF NOT EXISTS "reservations" (
 	"id" varchar(255) PRIMARY KEY NOT NULL,
 	"room_id" varchar(255) NOT NULL,
-	"initial_date" timestamp NOT NULL,
-	"end_date" timestamp NOT NULL
+	"start_date" date NOT NULL,
+	"end_date" date NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "rooms" (

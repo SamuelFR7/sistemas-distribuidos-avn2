@@ -1,4 +1,4 @@
-import { pgTable, timestamp, varchar } from "drizzle-orm/pg-core";
+import { date, pgTable, timestamp, varchar } from "drizzle-orm/pg-core";
 import { createId } from "@paralleldrive/cuid2";
 import { relations } from "drizzle-orm";
 
@@ -49,8 +49,8 @@ export const reservations = pgTable("reservations", {
       onDelete: "cascade",
       onUpdate: "cascade",
     }),
-  startDate: timestamp("start_date").notNull(),
-  endDate: timestamp("end_date").notNull(),
+  startDate: date("start_date").notNull(),
+  endDate: date("end_date").notNull(),
 });
 
 export const reservationsRelations = relations(reservations, ({ one }) => ({

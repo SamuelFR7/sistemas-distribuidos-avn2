@@ -70,8 +70,8 @@ function createReservations(i: number) {
     return;
   }
 
-  const startDate = faker.date.past();
-  const endDate = faker.date.soon({ refDate: startDate });
+  const startDate = faker.date.past().toISOString();
+  const endDate = faker.date.soon({ refDate: startDate }).toISOString();
   reservationsToInsert.push({
     endDate,
     startDate,

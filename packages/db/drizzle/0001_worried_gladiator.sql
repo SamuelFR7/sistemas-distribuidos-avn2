@@ -1,1 +1,0 @@
-ALTER TABLE "reservations" RENAME COLUMN "initial_date" TO "start_date";
