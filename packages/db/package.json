@@ -4,18 +4,24 @@
   "private": true,
   "main": "./index.ts",
   "types": "./index.ts",
+  "type": "module",
   "scripts": {
     "db:generate": "drizzle-kit generate:pg",
-    "db:migrate": "tsx migrate.ts"
+    "db:migrate": "tsx migrate.ts",
+    "db:seed": "tsx seed.ts"
   },
   "dependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@paralleldrive/cuid2": "^2.2.2",
+    "chalk": "^5.3.0",
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.30.9",
     "postgres": "^3.4.4",
     "tsx": "^4.7.3"
   },
   "devDependencies": {
-    "drizzle-kit": "^0.20.17"
+    "@types/node": "^20.12.7",
+    "drizzle-kit": "^0.20.17",
+    "typescript": "^5.4.5"
   }
 }
