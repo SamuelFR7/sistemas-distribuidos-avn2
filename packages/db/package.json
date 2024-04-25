@@ -1,14 +1,19 @@
 {
-  "name": "@micro/db",
+  "name": "@repo/db",
   "version": "0.0.0",
   "private": true,
-  "main": "./index.ts",
-  "types": "./index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "type": "module",
+  "files": [
+    "dist/**"
+  ],
   "scripts": {
     "db:generate": "drizzle-kit generate:pg",
     "db:migrate": "tsx migrate.ts",
-    "db:seed": "tsx seed.ts"
+    "db:seed": "tsx seed.ts",
+    "build": "tsup",
+    "dev": "pnpm run build -- --watch"
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
@@ -22,6 +27,7 @@
   "devDependencies": {
     "@types/node": "^20.12.7",
     "drizzle-kit": "^0.20.17",
+    "tsup": "^8.0.2",
     "typescript": "^5.4.5"
   }
 }

@@ -6,8 +6,6 @@
     "forceConsistentCasingInFileNames": true,
     "strictPropertyInitialization": false,
     "resolveJsonModule": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "strict": true,
     "skipLibCheck": true,
     "baseUrl": ".",
@@ -15,5 +13,6 @@
       "~/*": ["./src/*"]
     }
   },
-  "exclude": ["dist"]
+  "exclude": ["node_modules"],
+  "include": ["src"]
 }

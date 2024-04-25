@@ -1,18 +1,20 @@
 {
   "name": "busca-hoteis",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx --watch ./src/server.ts",
-    "build": "tsup ./src/server.ts"
+    "build": "tsup",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@micro/db": "workspace:*",
+    "@repo/db": "workspace:*",
     "fastify": "^4.26.2",
     "zod": "^3.23.4"
   },

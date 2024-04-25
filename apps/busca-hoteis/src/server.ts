@@ -6,15 +6,17 @@ import {
   count,
   db,
   eq,
+  hotels,
   ilike,
-  not,
-  notExists,
   notInArray,
-} from "@micro/db";
+  reservations,
+  rooms,
+} from "@repo/db";
 import { z } from "zod";
-import { hotels, reservations, rooms } from "@micro/db/schema";
 
-const app = Fastify({});
+const app = Fastify({
+  logger: true,
+});
 
 const querySchema = z.object({
   startDate: z.string().date().optional(),
