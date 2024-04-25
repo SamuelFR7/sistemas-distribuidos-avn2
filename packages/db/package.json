@@ -1,0 +1,21 @@
+{
+  "name": "@micro/db",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "db:generate": "drizzle-kit generate:pg",
+    "db:migrate": "tsx migrate.ts"
+  },
+  "dependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.30.9",
+    "postgres": "^3.4.4",
+    "tsx": "^4.7.3"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.20.17"
+  }
+}
