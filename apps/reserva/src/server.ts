@@ -39,11 +39,16 @@ app.register(swaggerUi, {
   transformSpecificationClone: true,
 });
 
-const bodySchema = z.object({
-  startDate: z.string().date(),
-  endDate: z.string().date(),
-  email: z.string().email().optional(),
-});
+const bodySchema = z
+  .object({
+    startDate: z.string().date(),
+    endDate: z.string().date(),
+    email: z.string().email().optional(),
+  })
+  .refine(
+    (data) => new Date(data.startDate) > new Date(),
+    "Não é possível fazer uma reserva para antes de hoje"
+  );
 
 const paramsSchema = z.object({
   roomId: z.string(),
@@ -77,6 +82,14 @@ app.post(
             message: {
               type: "string",
             },
+            reservation: {
+              type: "object",
+              properties: {
+                id: {
+                  type: "string",
+                },
+              },
+            },
           },
         },
         422: {
@@ -97,7 +110,7 @@ app.post(
 
     if (body.success !== true) {
       return res.status(422).send({
-        errors: body.error.flatten(),
+        errors: JSON.stringify(body.error.flatten()),
       });
     }
 
@@ -144,15 +157,23 @@ app.post(
       });
     }
 
-    await db.insert(reservations).values({
-      endDate,
-      startDate,
-      roomId,
-      email,
-    });
+    const [newReservation] = await db
+      .insert(reservations)
+      .values({
+        endDate,
+        startDate,
+        roomId,
+        email,
+      })
+      .returning({
+        id: reservations.id,
+      });
 
     return res.send({
       message: "Reservation created",
+      reservation: {
+        id: newReservation.id,
+      },
     });
   }
 );

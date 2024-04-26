@@ -1,4 +1,10 @@
-import { date, pgTable, timestamp, varchar } from "drizzle-orm/pg-core";
+import {
+  boolean,
+  date,
+  pgTable,
+  timestamp,
+  varchar,
+} from "drizzle-orm/pg-core";
 import { createId } from "@paralleldrive/cuid2";
 import { relations } from "drizzle-orm";
 
@@ -50,6 +56,7 @@ export const reservations = pgTable("reservations", {
       onUpdate: "cascade",
     }),
   email: varchar("email", { length: 255 }),
+  canceled: boolean("canceled").notNull().default(false),
   startDate: date("start_date").notNull(),
   endDate: date("end_date").notNull(),
 });

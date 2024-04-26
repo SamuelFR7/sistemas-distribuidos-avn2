@@ -21,6 +21,16 @@ services:
     environment:
       - DATABASE_URL=postgres://docker:docker@db:5432/hotels
 
+  cancelamento-api:
+    build:
+      context: .
+      target: cancelamento
+    ports:
+      - 3002:3002
+    container_name: cancelamento-api
+    environment:
+      - DATABASE_URL=postgres://docker:docker@db:5432/hotels
+
   db:
     image: postgres:16
     container_name: db
