@@ -1,5 +1,5 @@
 {
-  "id": "55472269-15d8-42c0-9679-299994dc06bf",
+  "id": "01105896-29b1-462c-80f6-08704050cefb",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -66,6 +66,13 @@
           "type": "varchar(255)",
           "primaryKey": false,
           "notNull": false
+        },
+        "canceled": {
+          "name": "canceled",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
         },
         "start_date": {
           "name": "start_date",
