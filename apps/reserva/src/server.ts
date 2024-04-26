@@ -70,6 +70,25 @@ app.post(
           },
         },
       },
+      response: {
+        default: {
+          type: "object",
+          properties: {
+            message: {
+              type: "string",
+            },
+          },
+        },
+        422: {
+          type: "object",
+          description: "Validation error",
+          properties: {
+            errors: {
+              type: "string",
+            },
+          },
+        },
+      },
     },
   },
   async (req: FastifyRequest, res: FastifyReply) => {
