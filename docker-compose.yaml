@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  busca-api:
+    build:
+      context: .
+      target: busca-hoteis
+    ports:
+      - 3000:3000
+    container_name: busca-api
+    environment:
+      - DATABASE_URL=postgres://docker:docker@db:5432/hotels
+
+  db:
+    image: postgres:16
+    container_name: db
+    volumes:
+      - ./script.sql:/docker-entrypoint-initdb.d/script.sql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_DB=hotels
+      - POSTGRES_PASSWORD=docker
