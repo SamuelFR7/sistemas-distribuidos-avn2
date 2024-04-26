@@ -18,6 +18,9 @@
     },
     "db:migrate": {
       "cache": false
+    },
+    "typecheck": {
+      "cache": false
     }
   }
 }
