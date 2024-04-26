@@ -18,6 +18,10 @@
     },
     "db:migrate": {
       "cache": false
+    },
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "cache": false
     }
   }
 }

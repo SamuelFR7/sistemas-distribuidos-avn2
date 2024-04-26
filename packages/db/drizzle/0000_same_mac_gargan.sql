@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS "hotels" (
 CREATE TABLE IF NOT EXISTS "reservations" (
 	"id" varchar(255) PRIMARY KEY NOT NULL,
 	"room_id" varchar(255) NOT NULL,
+	"email" varchar(255),
 	"start_date" date NOT NULL,
 	"end_date" date NOT NULL
 );

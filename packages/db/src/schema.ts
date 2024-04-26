@@ -49,6 +49,7 @@ export const reservations = pgTable("reservations", {
       onDelete: "cascade",
       onUpdate: "cascade",
     }),
+  email: varchar("email", { length: 255 }),
   startDate: date("start_date").notNull(),
   endDate: date("end_date").notNull(),
 });

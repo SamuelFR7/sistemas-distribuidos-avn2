@@ -11,6 +11,16 @@ services:
     environment:
       - DATABASE_URL=postgres://docker:docker@db:5432/hotels
 
+  reserva-api:
+    build:
+      context: .
+      target: reserva
+    ports:
+      - 3001:3001
+    container_name: reserva-api
+    environment:
+      - DATABASE_URL=postgres://docker:docker@db:5432/hotels
+
   db:
     image: postgres:16
     container_name: db
