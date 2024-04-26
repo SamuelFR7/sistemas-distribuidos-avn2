@@ -1,5 +1,5 @@
 {
-  "id": "63946a1c-7403-4793-bbf8-034060b0bb6c",
+  "id": "55472269-15d8-42c0-9679-299994dc06bf",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -60,6 +60,12 @@
           "type": "varchar(255)",
           "primaryKey": false,
           "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
         },
         "start_date": {
           "name": "start_date",

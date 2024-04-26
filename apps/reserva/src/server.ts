@@ -129,6 +129,7 @@ app.post(
       endDate,
       startDate,
       roomId,
+      email,
     });
 
     return res.send({
