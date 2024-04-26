@@ -79,7 +79,8 @@ export async function getRoomsRoute(app: FastifyInstance) {
                   and(
                     eq(rooms.id, reservations.roomId),
                     between(reservations.startDate, startDate, endDate),
-                    between(reservations.endDate, startDate, endDate)
+                    between(reservations.endDate, startDate, endDate),
+                    eq(reservations.canceled, false)
                   )
                 )
             )

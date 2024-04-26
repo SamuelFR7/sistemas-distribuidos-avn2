@@ -7,10 +7,10 @@ import {
   hotels,
   ilike,
   notInArray,
+  rooms,
+  reservations,
+  db,
 } from "@repo/db";
-import { rooms } from "@repo/db";
-import { reservations } from "@repo/db";
-import { db } from "@repo/db";
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 
@@ -115,7 +115,8 @@ export async function getHotelsRoute(app: FastifyInstance) {
                       and(
                         eq(rooms.id, reservations.roomId),
                         between(reservations.startDate, startDate, endDate),
-                        between(reservations.endDate, startDate, endDate)
+                        between(reservations.endDate, startDate, endDate),
+                        eq(reservations.canceled, false)
                       )
                     )
                 )
