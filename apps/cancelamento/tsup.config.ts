@@ -5,5 +5,4 @@ export default defineConfig({
   splitting: false,
   clean: true,
   format: "esm",
-  dts: true,
 });
